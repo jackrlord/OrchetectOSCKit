@@ -41,7 +41,7 @@ let package = Package(
         ),
         .testTarget(
             name: "OSCKitTests",
-            dependencies: ["OSCKit"]
+            dependencies: ["OrchetectOSCKit"]
         ),
         .testTarget(
             name: "OSCKitCoreTests",
