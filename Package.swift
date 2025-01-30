@@ -23,7 +23,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OSCKit",
+            name: "OrchetectOSCKit",
             dependencies: [
                 "OSCKitCore",
                 .product(
