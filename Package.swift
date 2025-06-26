@@ -12,8 +12,8 @@ let package = Package(
             targets: ["OrchetectOSCKit"]
         ),
         .library(
-            name: "OSCKitCore",
-            targets: ["OSCKitCore"]
+            name: "OrchetectOSCKitCore",
+            targets: ["OrchetectOSCKitCore"]
         )
     ],
     dependencies: [
@@ -35,7 +35,7 @@ let package = Package(
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .target(
-            name: "OSCKitCore",
+            name: "OrchetectOSCKitCore",
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
