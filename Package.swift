@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "OSCKit",
+    name: "OrchetectOSCKit",
     platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13)],
     products: [
         .library(
-            name: "OSCKit",
+            name: "OrchetectOSCKit",
             targets: ["OSCKit"]
         ),
         .library(
-            name: "OSCKitCore",
+            name: "OrchetectOSCKitCore",
             targets: ["OSCKitCore"]
         )
     ],
@@ -23,9 +23,9 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OSCKit",
+            name: "OrchetectOSCKit",
             dependencies: [
-                "OSCKitCore",
+                "OrchetectOSCKitCore",
                 .product(
                     name: "CocoaAsyncSocket",
                     package: "CocoaAsyncSocket",
@@ -35,18 +35,18 @@ let package = Package(
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .target(
-            name: "OSCKitCore",
+            name: "OrchetectOSCKitCore",
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .testTarget(
-            name: "OSCKitTests",
+            name: "OrchetectOSCKitTests",
             dependencies: ["OSCKit"]
         ),
         .testTarget(
-            name: "OSCKitCoreTests",
+            name: "OrchetectOSCKitCoreTests",
             dependencies: [
-                "OSCKitCore",
+                "OrchetectOSCKitCore",
                 .product(name: "Numerics", package: "swift-numerics")
             ]
         )
