@@ -9,10 +9,10 @@ let package = Package(
     products: [
         .library(
             name: "OrchetectOSCKit",
-            targets: ["OSCKit"]
+            targets: ["OrchetectOSCKit"]
         ),
         .library(
-            name: "OrchetectOSCKitCore",
+            name: "OSCKitCore",
             targets: ["OSCKitCore"]
         )
     ],
@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "OrchetectOSCKit",
             dependencies: [
-                "OrchetectOSCKitCore",
+                "OSCKitCore",
                 .product(
                     name: "CocoaAsyncSocket",
                     package: "CocoaAsyncSocket",
@@ -35,18 +35,18 @@ let package = Package(
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .target(
-            name: "OrchetectOSCKitCore",
+            name: "OSCKitCore",
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .testTarget(
-            name: "OrchetectOSCKitTests",
-            dependencies: ["OSCKit"]
+            name: "OSCKitTests",
+            dependencies: ["OrchetectOOSCKit"]
         ),
         .testTarget(
-            name: "OrchetectOSCKitCoreTests",
+            name: "OSCKitCoreTests",
             dependencies: [
-                "OrchetectOSCKitCore",
+                "OSCKitCore",
                 .product(name: "Numerics", package: "swift-numerics")
             ]
         )
