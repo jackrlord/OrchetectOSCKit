@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import OSCKitCore
+import OrchetectOSCKitCore
 
 /// Internal protocol that all objects who act as an OSC server adopt.
 /// Provides shared logic.

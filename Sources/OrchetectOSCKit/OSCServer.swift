@@ -8,7 +8,7 @@
 
 @preconcurrency import CocoaAsyncSocket
 import Foundation
-import OSCKitCore
+import OrchetectOSCKitCore
 
 /// Receives OSC packets from the network on a specific UDP listen port.
 ///
