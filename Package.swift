@@ -35,7 +35,7 @@ let package = Package(
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .target(
-            name: "OSCKitCore",
+            name: "OrchetectOSCKitCore",
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
