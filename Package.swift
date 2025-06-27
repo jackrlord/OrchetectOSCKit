@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "OrchetectOSCKit",
             dependencies: [
-                "OrchetectOSCKitCore",
+                "OSCKitCore",
                 .product(
                     name: "CocoaAsyncSocket",
                     package: "CocoaAsyncSocket",
@@ -35,7 +35,7 @@ let package = Package(
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
         .target(
-            name: "OrchetectOSCKitCore",
+            name: "OSCKitCore",
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
