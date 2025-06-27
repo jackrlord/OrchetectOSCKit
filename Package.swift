@@ -46,7 +46,7 @@ let package = Package(
         .testTarget(
             name: "OSCKitCoreTests",
             dependencies: [
-                "OSCKitCore",
+                "OrchetectOSCKitCore",
                 .product(name: "Numerics", package: "swift-numerics")
             ]
         )
