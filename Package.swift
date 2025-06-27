@@ -9,11 +9,11 @@ let package = Package(
     products: [
         .library(
             name: "OrchetectOSCKit",
-            targets: ["OSCKit"]
+            targets: ["OrchetectOSCKit"]
         ),
         .library(
             name: "OrchetectOSCKitCore",
-            targets: ["OSCKitCore"]
+            targets: ["OrchetectOSCKitCore"]
         )
     ],
     dependencies: [
