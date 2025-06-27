@@ -25,7 +25,7 @@ let package = Package(
         .target(
             name: "OrchetectOSCKit",
             dependencies: [
-                "OrchetectOSCKit",
+                "OSCKit",
                 .product(
                     name: "CocoaAsyncSocket",
                     package: "CocoaAsyncSocket",
