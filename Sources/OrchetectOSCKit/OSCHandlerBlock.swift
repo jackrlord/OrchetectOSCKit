@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import OSCKitCore
+import OrchetectOSCKitCore
 
 /// Received-message handler closure used by OSCKit socket classes.
 public typealias OSCHandlerBlock = @Sendable (
