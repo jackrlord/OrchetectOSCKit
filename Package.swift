@@ -39,16 +39,5 @@ let package = Package(
             dependencies: ["SwiftASCII"],
             swiftSettings: [.define("DEBUG", .when(configuration: .debug))]
         ),
-        .testTarget(
-            name: "OSCKitTests",
-            dependencies: ["OrchetectOSCKit"]
-        ),
-        .testTarget(
-            name: "OSCKitCoreTests",
-            dependencies: [
-                "OrchetectOSCKitCore",
-                .product(name: "Numerics", package: "swift-numerics")
-            ]
-        )
     ]
 )
