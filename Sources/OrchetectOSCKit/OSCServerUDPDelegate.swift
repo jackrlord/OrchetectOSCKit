@@ -29,7 +29,8 @@ final class OSCServerUDPDelegate: NSObject, GCDAsyncUdpSocketDelegate, @unchecke
         var remoteHost: NSString? = nil
         var remotePort: UInt16 = 0
         _ = GCDAsyncUdpSocket.getHost(&remoteHost, port: &remotePort, fromAddress: address)
-
+        print("HEX DUMP:")
+        print(message.map { String(format: "%02X", $0) }.joined(separator: " "))
         _handle(
             oscServer: oscServer,
             data: data,

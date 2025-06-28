@@ -206,11 +206,6 @@ extension OSCValueDecoder {
                     + " Non-ASCII characters may be present or the data is malformed."
             )
         }
-        
-#if DEBUG
-//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-        print("ACSII STRING:" ,value)
-#endif
         // advancePosition() was already called by read4ByteAlignedNullTerminatedData()
         
         return value
