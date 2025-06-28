@@ -29,7 +29,9 @@ final class OSCServerUDPDelegate: NSObject, GCDAsyncUdpSocketDelegate, @unchecke
         var remoteHost: NSString? = nil
         var remotePort: UInt16 = 0
         _ = GCDAsyncUdpSocket.getHost(&remoteHost, port: &remotePort, fromAddress: address)
-        
+#if DEBUG
+        print("UDP received:" ,String(data: data, encoding: .utf8))
+#endif
         _handle(
             oscServer: oscServer,
             data: data,
@@ -45,9 +47,7 @@ final class OSCServerUDPDelegate: NSObject, GCDAsyncUdpSocketDelegate, @unchecke
         remoteHost: String,
         remotePort: UInt16
     ) {
-#if DEBUG
-        print("UDP received: \(String(data: data, encoding: .utf8) ?? "<binary data>")
-#endif
+
         oscServer.receiveQueue.async {
             do {
                 guard let payload = try data.parseOSC() else { return }
