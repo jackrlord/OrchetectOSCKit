@@ -45,7 +45,9 @@ final class OSCServerUDPDelegate: NSObject, GCDAsyncUdpSocketDelegate, @unchecke
         remoteHost: String,
         remotePort: UInt16
     ) {
-        Swift.print("UDP received: \(String(data: data, encoding: .utf8) ?? "<binary data>")
+#if DEBUG
+        print("UDP received: \(String(data: data, encoding: .utf8) ?? "<binary data>")
+#endif
         oscServer.receiveQueue.async {
             do {
                 guard let payload = try data.parseOSC() else { return }
