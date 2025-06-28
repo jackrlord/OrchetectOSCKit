@@ -206,6 +206,11 @@ extension OSCValueDecoder {
                     + " Non-ASCII characters may be present or the data is malformed."
             )
         }
+        
+#if DEBUG
+//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
+        print("ACSII STRING:" ,value)
+#endif
         // advancePosition() was already called by read4ByteAlignedNullTerminatedData()
         
         return value
@@ -221,10 +226,7 @@ extension OSCValueDecoder {
         }
         
         let data = remainingData
-#if DEBUG
-//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-        print("DATA:" ,String(data: data, encoding: .utf8))
-#endif
+
         // check for first null
         guard let nullIndex = data
             .range(of: Data([0x00]))?
