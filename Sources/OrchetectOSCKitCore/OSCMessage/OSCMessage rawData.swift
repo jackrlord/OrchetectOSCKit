@@ -18,7 +18,7 @@ extension OSCMessage {
         let decoded = try OSCMessageDecoder.decode(rawData: rawData)
 #if DEBUG
 //        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-        print("UDP received:" ,String(data: data, encoding: .utf8))
+        print("UDP received:" ,String(data: rawData, encoding: .utf8))
 #endif
         // update public properties
         addressPattern = .init(decoded.addressPattern)
