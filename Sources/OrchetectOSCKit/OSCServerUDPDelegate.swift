@@ -29,9 +29,7 @@ final class OSCServerUDPDelegate: NSObject, GCDAsyncUdpSocketDelegate, @unchecke
         var remoteHost: NSString? = nil
         var remotePort: UInt16 = 0
         _ = GCDAsyncUdpSocket.getHost(&remoteHost, port: &remotePort, fromAddress: address)
-#if DEBUG
-        print("UDP received:" ,String(data: data, encoding: .utf8))
-#endif
+
         _handle(
             oscServer: oscServer,
             data: data,
