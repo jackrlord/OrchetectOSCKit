@@ -201,11 +201,7 @@ extension OSCValueDecoder {
         print("Chunk:" ,String(data: chunk, encoding: .utf8))
 #endif
         guard let value = ASCIIString(exactly: chunk.data)?.stringValue
-                
-                #if DEBUG
-                //        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-                        print("String Val:" ,value)
-                #endif
+      
                 
         else {
             throw OSCDecodeError.malformed(
@@ -214,6 +210,10 @@ extension OSCValueDecoder {
             )
         }
         
+        #if DEBUG
+        //        print("OSC INIT: \(String(data: rawData, encoding: .non))")
+                print("String Val:" ,value)
+        #endif
         // advancePosition() was already called by read4ByteAlignedNullTerminatedData()
         
         return value
