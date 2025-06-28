@@ -196,8 +196,17 @@ extension OSCValueDecoder {
         // read4ByteAlignedNullTerminatedData takes care of data size validation so we don't need to
         // do it here
         let chunk = try read4ByteAlignedNullTerminatedData()
-        
+#if DEBUG
+//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
+        print("Chunk:" ,String(data: chunk, encoding: .utf8))
+#endif
         guard let value = ASCIIString(exactly: chunk.data)?.stringValue
+                
+                #if DEBUG
+                //        print("OSC INIT: \(String(data: rawData, encoding: .non))")
+                        print("String Val:" ,value)
+                #endif
+                
         else {
             throw OSCDecodeError.malformed(
                 "Failed to form valid ASCII string from 4-byte aligned null-terminated ASCII string chunk."
