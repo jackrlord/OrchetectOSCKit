@@ -196,10 +196,7 @@ extension OSCValueDecoder {
         // read4ByteAlignedNullTerminatedData takes care of data size validation so we don't need to
         // do it here
         let chunk = try read4ByteAlignedNullTerminatedData()
-#if DEBUG
-//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-        print("Chunk:" ,String(data: chunk, encoding: .utf8))
-#endif
+
         guard let value = ASCIIString(exactly: chunk.data)?.stringValue
       
                 
@@ -209,11 +206,6 @@ extension OSCValueDecoder {
                     + " Non-ASCII characters may be present or the data is malformed."
             )
         }
-        
-        #if DEBUG
-        //        print("OSC INIT: \(String(data: rawData, encoding: .non))")
-                print("String Val:" ,value)
-        #endif
         // advancePosition() was already called by read4ByteAlignedNullTerminatedData()
         
         return value
@@ -229,7 +221,10 @@ extension OSCValueDecoder {
         }
         
         let data = remainingData
-        
+#if DEBUG
+//        print("OSC INIT: \(String(data: rawData, encoding: .non))")
+        print("DATA:" ,String(data: data, encoding: .utf8))
+#endif
         // check for first null
         guard let nullIndex = data
             .range(of: Data([0x00]))?
